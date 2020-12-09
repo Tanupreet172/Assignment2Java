@@ -38,7 +38,7 @@ public class SearchViewController implements Initializable {
 
 
 
-        System.out.println(response.getMain().getHumidity());
+
         FXMLLoader loader = new FXMLLoader();
 
 
@@ -48,7 +48,7 @@ public class SearchViewController implements Initializable {
 
         Parent root = loader.load();
         WeatherViewController wv=loader.getController();
-        wv.settingValue(response);
+        wv.settingValue(response,searchTest);
         root.setId("pane");
         Scene weatherScene = new Scene(root);
         //weatherScene.getStylesheets().add("Views/stylesheet.css");
@@ -60,9 +60,11 @@ public class SearchViewController implements Initializable {
 
     }
 
-public APIResponse getRes(){
+    public APIResponse getRes(){
         return this.response;
 }
+
+
 
 
     @Override

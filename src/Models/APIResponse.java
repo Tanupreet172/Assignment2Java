@@ -12,7 +12,9 @@ public class APIResponse {
         this.main = main;
         this.wind = wind;
         this.coord = coord;
+
     }
+
 
     public Weather[] getWeather() {
         return weather;

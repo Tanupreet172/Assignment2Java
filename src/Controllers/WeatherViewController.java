@@ -72,10 +72,24 @@ public class WeatherViewController implements Initializable {
         window.setScene(searchScene);
         window.show();
     }
-    public void settingValue(APIResponse api){
+    public void settingValue(APIResponse api,String searchTest){
+
         humidityLabel.setText(String.valueOf(api.getMain().getHumidity()));
         float cel= (float) (api.getMain().getTemp()-273.15);
-        temperatureLabel.setText(cel+" celsius");
+        temperatureLabel.setText(cel+" Celsius");
+        descriptionLabel.setText(api.getWeather()[0].getDescription());
+        mainLabel.setText(api.getWeather()[0].getMain());
+        windSpeedLabel.setText(String.valueOf(api.getWind().getSpeed()));
+        float feelCel= (float) (api.getMain().getFeelsLike()-273.15);
+        feelsLikeLabel.setText(feelCel+" Celsius");
+        pressureLabel.setText(String.valueOf(api.getMain().getPressure()));
+        float maxCel= (float) (api.getMain().getTempMax()-273.15);
+        maxTempLabel.setText(maxCel+" Celsius");
+        float minCel= (float) (api.getMain().getTempMin()-273.15);
+        minTempLabel.setText(minCel+" Celsius");
+        latitudeLabel.setText(String.valueOf(api.getCoord().getLatitude()));
+        longitudeLabel.setText(String.valueOf(api.getCoord().getLongitude()));
+        cityLabel.setText(searchTest);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
