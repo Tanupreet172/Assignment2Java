@@ -4,5 +4,5 @@ public class APIResponse {
     private Weather[] weather;
     private Main main;
     private Wind wind;
-    private Coordinates coordinates;
+    private Coord coord;
 }

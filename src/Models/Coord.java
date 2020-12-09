@@ -2,13 +2,14 @@ package Models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Coordinates {
+
+public class Coord {
 @SerializedName("lon")
 private double longitude;
 @SerializedName("lat")
 private double latitude;
 
-    public Coordinates(double longitude, double latitude) {
+    public Coord(double longitude, double latitude) {
         setLongitude(longitude);
         setLatitude(latitude);
     }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WeatherViewController">
+   <children>
+      <Label layoutX="241.0" layoutY="32.0" text="Weather Details" />
+      <Label layoutX="53.0" layoutY="71.0" text="Temperature" />
+      <Label layoutX="53.0" layoutY="110.0" text="Description" />
+      <Label layoutX="53.0" layoutY="169.0" text="Main" />
+      <Label layoutX="53.0" layoutY="245.0" text="Feels like" />
+      <Label layoutX="53.0" layoutY="200.0" text="Wind speed" />
+      <Label layoutX="300.0" layoutY="80.0" text="Humidity" />
+      <Label layoutX="300.0" layoutY="119.0" text="Maximum temperature" />
+      <Label layoutX="300.0" layoutY="160.0" text="Minimum Temperature" />
+      <Label layoutX="300.0" layoutY="200.0" text="Latitude" />
+      <Label layoutX="300.0" layoutY="245.0" text="Longitude" />
+      <Label layoutX="307.0" layoutY="288.0" text="City" />
+      <Label layoutX="53.0" layoutY="288.0" text="Pressure" />
+      <Button fx:id="backButton" layoutX="441.0" layoutY="330.0" mnemonicParsing="false" text="Back to search" />
+   </children>
+</AnchorPane>
