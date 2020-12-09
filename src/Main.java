@@ -1,24 +1,19 @@
-import Models.APIResponse;
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.io.FileReader;
-
-public class Main {
+public class Main extends Application {
     public static void main(String[] args) {
-        try(
-                FileReader fileReader = new FileReader("src/weather.json");
-                JsonReader jsonReader = new JsonReader(fileReader);
-                )
-        {
-            Gson gson = new Gson();
-            APIResponse apiResponse = gson.fromJson(jsonReader,APIResponse.class);
-            System.out.println();
+        launch(args);
+    }
 
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Views/SearchView.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
