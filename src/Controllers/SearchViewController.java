@@ -25,19 +25,30 @@ public class SearchViewController implements Initializable {
     @FXML
     private Button searchButton;
 
-    public APIResponse res;
+    public APIResponse response;
     @FXML
     private void getWeatherInfo(ActionEvent event) throws IOException {
         String searchTest = cityTextField.getText();
         try {
-            APIResponse response = APIUtility.callAPI(searchTest);
-            this.res=response;
+            response = APIUtility.callAPI(searchTest);
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+
+
+
+        System.out.println(response.getMain().getHumidity());
         FXMLLoader loader = new FXMLLoader();
+
+
+
+
         loader.setLocation(getClass().getResource("../Views/WeatherView.fxml"));
+
         Parent root = loader.load();
+        WeatherViewController wv=loader.getController();
+        wv.settingValue(response);
         root.setId("pane");
         Scene weatherScene = new Scene(root);
         //weatherScene.getStylesheets().add("Views/stylesheet.css");
@@ -45,9 +56,13 @@ public class SearchViewController implements Initializable {
 
         window.setScene(weatherScene);
         window.show();
+
+
     }
 
-
+public APIResponse getRes(){
+        return this.response;
+}
 
 
     @Override

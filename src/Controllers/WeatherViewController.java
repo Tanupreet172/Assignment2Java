@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.APIResponse;
 import Models.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,6 +58,7 @@ public class WeatherViewController implements Initializable {
     @FXML
     private Label cityLabel;
 
+
     @FXML
     void backSearch(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -70,11 +72,13 @@ public class WeatherViewController implements Initializable {
         window.setScene(searchScene);
         window.show();
     }
-
+    public void settingValue(APIResponse api){
+        humidityLabel.setText(String.valueOf(api.getMain().getHumidity()));
+        float cel= (float) (api.getMain().getTemp()-273.15);
+        temperatureLabel.setText(cel+" celsius");
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        SearchViewController sv=new SearchViewController();
-        humidityLabel.setText(String.valueOf(sv.res.getMain().getHumidity()));
 
     }
 }
