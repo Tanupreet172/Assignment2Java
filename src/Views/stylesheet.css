@@ -1,0 +1,29 @@
+#cityLabel{
+    -fx-font-size: 20px;
+}
+#maxTempLabel,#minTempLabel,#mainLabel{
+    -fx-font-size: 10px;
+
+}
+#temperatureLabel{
+    -fx-font-size: 20px;
+
+}
+
+#vBox{
+    -fx-alignment: top-center;
+    -fx-padding: 10;
+}
+
+#gridPane,#gridPanes{
+    -fx-font-size: 15px;
+}
+#vBoxes{
+    -fx-alignment: top-right;
+}
+.root{
+    -fx-background-color: grey;
+}
+#errMsgLabel{
+    -fx-text-fill: red;
+}

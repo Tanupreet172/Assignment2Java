@@ -17,5 +17,6 @@
       <Label layoutX="29.0" layoutY="91.0" text="City name" />
       <TextField fx:id="cityTextField" layoutX="102.0" layoutY="87.0" />
       <Button fx:id="searchButton" layoutX="337.0" layoutY="87.0" mnemonicParsing="false" onAction="#getWeatherInfo" text="Search City" />
+      <Label fx:id="errMsgLabel" layoutX="102.0" layoutY="130.0" text="Label" />
    </children>
 </AnchorPane>

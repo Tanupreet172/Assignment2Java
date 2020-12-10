@@ -20,17 +20,24 @@ import java.nio.file.Paths;
 public class APIUtility {
 
     public static APIResponse callAPI(String searchText) throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://community-open-weather-map.p.rapidapi.com/weather?q="+searchText))
-                .header("x-rapidapi-key", "ca0190f0d8msh08c1134e34f98c5p1abc2cjsnf8479722e1ca")
-                .header("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
+        String jsonLocation=null;
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://community-open-weather-map.p.rapidapi.com/weather?q=" + searchText))
+                    .header("x-rapidapi-key", "ca0190f0d8msh08c1134e34f98c5p1abc2cjsnf8479722e1ca")
+                    .header("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
+                    .method("GET", HttpRequest.BodyPublishers.noBody())
+                    .build();
 
-        String jsonLocation = "src/Utilities/weather.json";
-        HttpResponse<Path> response = client.send(request, HttpResponse.BodyHandlers
-                .ofFile(Paths.get(jsonLocation)));
+            jsonLocation = "src/Utilities/weather.json";
+            HttpResponse<Path> response = client.send(request, HttpResponse.BodyHandlers
+                    .ofFile(Paths.get(jsonLocation)));
+
+        }
+        catch(NullPointerException e){
+            System.out.print(e);
+        }
         return getMoviesFromJSON(new File(jsonLocation));
     }
 

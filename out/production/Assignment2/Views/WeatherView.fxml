@@ -2,35 +2,77 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WeatherViewController">
    <children>
-      <Label layoutX="241.0" layoutY="32.0" text="Weather Details" />
-      <Label layoutX="53.0" layoutY="71.0" text="Temperature" />
-      <Label layoutX="53.0" layoutY="110.0" text="Description" />
-      <Label layoutX="53.0" layoutY="169.0" text="Main" />
-      <Label layoutX="53.0" layoutY="245.0" text="Feels like" />
-      <Label layoutX="53.0" layoutY="200.0" text="Wind speed" />
-      <Label fx:id="humidityLabel" layoutX="300.0" layoutY="80.0" text="Humidity" />
-      <Label layoutX="300.0" layoutY="119.0" text="Maximum temperature" />
-      <Label layoutX="300.0" layoutY="160.0" text="Minimum Temperature" />
-      <Label layoutX="300.0" layoutY="200.0" text="Latitude" />
-      <Label layoutX="300.0" layoutY="245.0" text="Longitude" />
-      <Label layoutX="307.0" layoutY="288.0" text="City" />
-      <Label layoutX="53.0" layoutY="288.0" text="Pressure" />
-      <Button fx:id="backButton" layoutX="441.0" layoutY="330.0" mnemonicParsing="false" onAction="#backSearch" text="Back to search" />
-      <Label fx:id="temperatureLabel" layoutX="143.0" layoutY="72.0" />
-      <Label fx:id="descriptionLabel" layoutX="143.0" layoutY="110.0" text="Label" />
-      <Label fx:id="mainLabel" layoutX="143.0" layoutY="169.0" text="Label" />
-      <Label fx:id="windSpeedLabel" layoutX="143.0" layoutY="200.0" text="Label" />
-      <Label fx:id="feelsLikeLabel" layoutX="129.0" layoutY="245.0" text="Label" />
-      <Label fx:id="pressureLabel" layoutX="129.0" layoutY="288.0" text="Label" />
-      <Label fx:id="humidityLabel" layoutX="434.0" layoutY="80.0" text="Label" />
-      <Label fx:id="maxTempLabel" layoutX="441.0" layoutY="119.0" text="Label" />
-      <Label fx:id="minTempLabel" layoutX="441.0" layoutY="161.0" text="Label" />
-      <Label fx:id="latitudeLabel" layoutX="441.0" layoutY="200.0" text="Label" />
-      <Label fx:id="longitudeLabel" layoutX="441.0" layoutY="245.0" text="Label" />
-      <Label fx:id="cityLabel" layoutX="441.0" layoutY="288.0" text="Label" />
+      <Button fx:id="backButton" layoutX="353.0" layoutY="302.0" mnemonicParsing="false" onAction="#backSearch" text="Back to search" />
+      <VBox fx:id="vBox" layoutX="263.0" layoutY="24.0" spacing="5.0">
+         <children>
+            <Label fx:id="cityLabel" text="Label" />
+            <Label fx:id="mainLabel" text="Label" />
+            <Label fx:id="temperatureLabel" text="Label" />
+            <HBox fx:id="hBox" spacing="15.0">
+               <children>
+                  <Label fx:id="maxTempLabel" text="Label" />
+                  <Label fx:id="minTempLabel" text="Label" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <GridPane fx:id="gridPane" layoutX="31.0" layoutY="186.0" prefHeight="152.0" prefWidth="232.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.39996337890625" minWidth="10.0" prefWidth="92.59998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.60003662109375" minWidth="10.0" prefWidth="139.00001220703126" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Description:" />
+            <Label fx:id="descriptionLabel" text="Label" GridPane.columnIndex="1" />
+            <Label text="Wind speed:" GridPane.rowIndex="2" />
+            <Label fx:id="windSpeedLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Feels like:" GridPane.rowIndex="1" />
+            <Label fx:id="feelsLikeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Pressure:" GridPane.rowIndex="4" />
+            <Label fx:id="pressureLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="humidityLabel" text="Humidity:" GridPane.rowIndex="3" />
+            <Label fx:id="humidityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <GridPane fx:id="gridPanes" layoutX="349.0" layoutY="186.0" prefHeight="92.0" prefWidth="218.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.20001220703125" minWidth="10.0" prefWidth="87.99998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="131.20001220703125" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="47.200006103515626" minHeight="10.0" prefHeight="46.39998779296875" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="54.4" minHeight="10.0" prefHeight="45.60001220703125" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Latitude:" />
+            <Label fx:id="latitudeLabel" text="Label" GridPane.columnIndex="1" />
+            <Label text="Longitude:" GridPane.rowIndex="1" />
+            <Label fx:id="longitudeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <VBox fx:id="vBoxes" layoutX="498.0" layoutY="24.0">
+         <children>
+            <Label fx:id="dayLabel" text="Label" />
+            <Label fx:id="dateTimeLabel" text="Label" />
+         </children>
+      </VBox>
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
