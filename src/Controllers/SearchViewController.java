@@ -12,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,15 +32,36 @@ public class SearchViewController implements Initializable {
     @FXML
     private Label errMsgLabel;
 
+    @FXML
+    private VBox vBoxess;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label mainsLabel;
+
+    @FXML
+    private ImageView imagesView;
+
+    @FXML
+    private Label tempLabel;
+
     public APIResponse response;
+
+
     @FXML
     private void getWeatherInfo(ActionEvent event) throws IOException,NullPointerException {
         String searchTest = cityTextField.getText();
         String e="error";
         try {
-            response = APIUtility.callAPI(searchTest);
 
-            System.out.print(response.getMain().getTemp());
+            String filtered=searchTest.replaceAll(" ","%20");
+
+            response = APIUtility.callAPI(filtered);
+
+            response.getMain().getTemp();
+
         }
             catch (IOException | InterruptedException | NullPointerException f) {
                 e=f.toString();
@@ -78,6 +102,23 @@ public class SearchViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errMsgLabel.setText("");
+        APIResponse res=null;
+        try {
+             res = APIUtility.callAPI("Barrie");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        nameLabel.setText("Georgian College");
+        mainsLabel.setText(res.getWeather()[0].getMain());
+        Image image = new Image("http://openweathermap.org/img/wn/" + res.getWeather()[0].getIcon() + "@2x.png");
+
+        ImageView img = new ImageView(image);
+
+        imagesView.setImage(img.getImage());
+        float cel = (float) (res.getMain().getTemp() - 273.15);
+        tempLabel.setText(cel+ "°C");
     }
 }
 

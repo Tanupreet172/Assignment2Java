@@ -38,12 +38,12 @@ public class APIUtility {
         catch(NullPointerException e){
             System.out.print(e);
         }
-        return getMoviesFromJSON(new File(jsonLocation));
+        return getWeatherFromJSON(new File(jsonLocation));
     }
 
 
 
-    public static APIResponse getMoviesFromJSON(File jsonFile)
+    public static APIResponse getWeatherFromJSON(File jsonFile)
     {
         Gson gson = new Gson();
         APIResponse searchResult = null;

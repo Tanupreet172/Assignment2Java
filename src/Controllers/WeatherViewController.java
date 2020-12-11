@@ -113,15 +113,14 @@ public class WeatherViewController implements Initializable {
     public void settingValue(APIResponse api,String searchTest) throws IOException {
         try {
 
-            humidityLabel.setText(String.valueOf(api.getMain().getHumidity()));
+            humidityLabel.setText(String.valueOf(api.getMain().getHumidity())+" %");
             float cel = (float) (api.getMain().getTemp() - 273.15);
             temperatureLabel.setText(cel + " °C");
             descriptionLabel.setText(api.getWeather()[0].getDescription());
             mainLabel.setText(api.getWeather()[0].getMain());
-            windSpeedLabel.setText(String.valueOf(api.getWind().getSpeed()));
-            float feelCel = (float) (api.getMain().getFeelsLike() - 273.15);
-            feelsLikeLabel.setText(feelCel + "°");
-            pressureLabel.setText(String.valueOf(api.getMain().getPressure()));
+            windSpeedLabel.setText(String.valueOf(api.getWind().getSpeed())+" m/s");
+            feelsLikeLabel.setText(api.getMain().getFeelsLike() + "°");
+            pressureLabel.setText(String.valueOf(api.getMain().getPressure())+" hPa");
             float maxCel = (float) (api.getMain().getTempMax() - 273.15);
             maxTempLabel.setText("H: " + maxCel + "°");
             float minCel = (float) (api.getMain().getTempMin() - 273.15);

@@ -4,12 +4,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Main {
     private double temp;
+
     @SerializedName("feelslike")
     private double feelsLike;
+
     @SerializedName("tempmin")
     private double tempMin;
+
     @SerializedName("temp_max")
     private double tempMax;
+
     private double pressure;
     private double humidity;
 

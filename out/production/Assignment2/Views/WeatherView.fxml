@@ -9,13 +9,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.WeatherViewController">
    <children>
       <Button fx:id="backButton" layoutX="353.0" layoutY="302.0" mnemonicParsing="false" onAction="#backSearch" text="Back to search" />
       <VBox fx:id="vBox" layoutX="263.0" layoutY="24.0" spacing="5.0">
          <children>
-            <Label fx:id="cityLabel" text="Label" />
+            <Label fx:id="cityLabel" text="Label">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
             <Label fx:id="mainLabel" text="Label" />
             <Label fx:id="temperatureLabel" text="Label" />
             <HBox fx:id="hBox" spacing="15.0">
@@ -41,7 +46,11 @@
          <children>
             <Label text="Description:" />
             <Label fx:id="descriptionLabel" text="Label" GridPane.columnIndex="1" />
-            <Label text="Wind speed:" GridPane.rowIndex="2" />
+            <Label text="Wind speed:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
             <Label fx:id="windSpeedLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Feels like:" GridPane.rowIndex="1" />
             <Label fx:id="feelsLikeLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />

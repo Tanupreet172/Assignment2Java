@@ -3,20 +3,50 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SearchViewController">
    <children>
-      <Label layoutX="218.0" layoutY="40.0" prefHeight="33.0" prefWidth="149.0" text="Weather Info">
+      <Label layoutX="218.0" layoutY="40.0" prefHeight="35.0" prefWidth="186.0" text="Weather Info">
          <font>
-            <Font size="24.0" />
+            <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="91.0" text="City name" />
+      <Label layoutX="29.0" layoutY="91.0" text="City name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
       <TextField fx:id="cityTextField" layoutX="102.0" layoutY="87.0" />
-      <Button fx:id="searchButton" layoutX="337.0" layoutY="87.0" mnemonicParsing="false" onAction="#getWeatherInfo" text="Search City" />
-      <Label fx:id="errMsgLabel" layoutX="102.0" layoutY="130.0" text="Label" />
+      <Button fx:id="searchButton" layoutX="337.0" layoutY="87.0" mnemonicParsing="false" onAction="#getWeatherInfo" text="Search City">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="errMsgLabel" layoutX="102.0" layoutY="130.0" text="Label">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <VBox fx:id="vBoxess" layoutX="207.0" layoutY="163.0" prefHeight="200.0" prefWidth="186.0">
+         <children>
+            <Label fx:id="nameLabel" text="Label">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="mainsLabel" text="Label">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imagesView" fitHeight="105.0" fitWidth="134.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="tempLabel" text="Label" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
