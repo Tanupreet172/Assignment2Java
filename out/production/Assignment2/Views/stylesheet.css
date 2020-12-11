@@ -22,8 +22,16 @@
     -fx-alignment: top-right;
 }
 .root{
-    -fx-background-color: grey;
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #a3ecf7, #75d2fa);
+
 }
 #errMsgLabel{
     -fx-text-fill: red;
+}
+#searchButton,#backButton{
+    -fx-background-radius: 10%;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,  #1f2121, #363838);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-text-fill: white;
 }
