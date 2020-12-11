@@ -110,6 +110,10 @@ public class WeatherViewController implements Initializable {
         window.setScene(searchScene);
         window.show();
     }
+
+    /**
+     * This method sets the label values and image to the image view
+     * **/
     public void settingValue(APIResponse api,String searchTest) throws IOException {
         try {
 
@@ -143,25 +147,6 @@ public class WeatherViewController implements Initializable {
         }
 
 
-
-      /*  if(mainLabel.getText().equalsIgnoreCase("clouds")) {
-            FileInputStream inputstream = new FileInputStream("src/Views/img/cloud.png");
-            Image image = new Image(inputstream);
-            ImageView img = new ImageView(image);
-            imageView.setImage(img.getImage());
-        }
-        if(mainLabel.getText().equalsIgnoreCase("snow")) {
-            FileInputStream inputstream = new FileInputStream("src/Views/img/snow.png");
-            Image image = new Image(inputstream);
-            ImageView img = new ImageView(image);
-            imageView.setImage(img.getImage());
-        }
-        if(mainLabel.getText().equalsIgnoreCase("clear")) {
-            FileInputStream inputstream = new FileInputStream("src/Views/img/clear.png");
-            Image image = new Image(inputstream);
-            ImageView img = new ImageView(image);
-            imageView.setImage(img.getImage());
-        }*/
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

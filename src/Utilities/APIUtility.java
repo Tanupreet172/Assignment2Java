@@ -16,6 +16,10 @@ import java.net.http.HttpResponse;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * This class calls the weather API and return
+ * various types of content
+ */
 
 public class APIUtility {
 

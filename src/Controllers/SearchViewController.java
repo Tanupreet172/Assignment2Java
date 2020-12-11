@@ -49,7 +49,12 @@ public class SearchViewController implements Initializable {
 
     public APIResponse response;
 
-
+    /**
+     * This method sends the api response to the next scene,changes the scene
+     * @param event
+     * @throws IOException
+     * @throws NullPointerException
+     */
     @FXML
     private void getWeatherInfo(ActionEvent event) throws IOException,NullPointerException {
         String searchTest = cityTextField.getText();
